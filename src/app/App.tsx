@@ -1,13 +1,15 @@
 import AppRouter from './router/ui/AppRouter.tsx';
-import { Flex } from 'antd';
+import { Layout } from 'antd';
 import './styles/app.scss';
+import { Content, Footer, Header } from 'antd/es/layout/layout';
 
 function App() {
-    
     return (
-        <Flex className={'App'} align={'center'} vertical>
+        <Layout className={'App'}>
+            <Header />
             <AppRouter />
-        </Flex>
+            <Footer />
+        </Layout>
     );
 }
 

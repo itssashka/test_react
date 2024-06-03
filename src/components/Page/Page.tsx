@@ -1,16 +1,23 @@
+import React, { ReactNode } from 'react';
+import { Flex, FlexProps } from 'antd';
+import { AnyObject } from 'antd/es/_util/type';
 import cls from './Page.module.scss';
-import { ReactNode } from 'react';
 
-interface PageProps {
-    children: ReactNode,
+interface PageProps extends
+    React.ForwardRefExoticComponent<FlexProps<AnyObject> & React.RefAttributes<HTMLElement>>
+{
+    children: ReactNode;
 }
 
 const Page = (props: PageProps) => {
-    const { children } = props;
+    const { children, ...otherProps } = props;
     return (
-        <div className={cls.Page}>
+        <Flex
+            className={cls.Page}
+            {...otherProps}
+        >
             {children}
-        </div>
+        </Flex>
     );
 };
 
