@@ -1,7 +1,7 @@
 import Title from 'antd/es/typography/Title';
 import { Button, Flex } from 'antd';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { EditForm } from '../../../components/Form/ui/EditForm.tsx';
+import { EditForm } from '../../../components/Form/EditForm.tsx';
 import { useAppDispatch, useAppSelector } from '../../../store/hooks.ts';
 import { getUser, getUserError, getUserIsLoading } from '../../../store/user/selectors/userSelector.ts';
 import { useCallback, useEffect } from 'react';

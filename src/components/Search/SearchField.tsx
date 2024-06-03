@@ -2,15 +2,19 @@ import Search from 'antd/es/input/Search';
 import { memo } from 'react';
 
 interface SearchProps {
-    onSearch: (searchQuery: string) => void;
+    onSearch: (query: string) => void;
 }
 
 const SearchField = memo((props: SearchProps) => {
     const { onSearch } = props;
+    const onSearchHandler: SearchProps['onSearch'] = (value) => {
+        onSearch(value);
+        console.log(value);
+    };
     return (
         <Search
             placeholder="input search text"
-            onSearch={onSearch}
+            onSearch={onSearchHandler}
             style={{ width: 300, marginBottom: '10px' }}
             allowClear
         />

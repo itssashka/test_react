@@ -1,8 +1,8 @@
 import React, { memo, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
-import { User, UserRoles } from '../../Users/types/types.ts';
+import { User, UserRoles } from '../Users/types/types.ts';
 import { Button, Form, Input, Select } from 'antd';
-import { users } from '../../../store/users/consts/users.ts';
+import { users } from '../../store/users/consts/users.ts';
 
 const passwordPattern = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/gi;
 const namePattern = /^[A-Za-z]+$/i;
