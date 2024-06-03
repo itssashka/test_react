@@ -1,7 +1,8 @@
 export enum UserRoles {
-    USER = 'user',
-    ADMIN = 'admin',
-    SUPERVISOR = 'supervisor',
+    ANT = 'ANT',
+    ANT_MANAGER = 'ANT_MANAGER',
+    ANT_OFFICER = 'ANT_OFFICER',
+    DEVELOPER = 'DEVELOPER'
 }
 
 export interface WorkBorders {

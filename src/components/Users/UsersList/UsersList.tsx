@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { User } from '../types/types.ts';
-import { Flex } from 'antd';
+import { Flex, List } from 'antd';
 import { UserCard } from '../UserCard/UserCard.tsx';
 
 interface UsersListProps {
@@ -17,10 +17,25 @@ const UsersList = memo((props: UsersListProps) => {
     } = props;
     return (
         <Flex gap={'middle'} align={'center'} justify={'start'}>
-            {users.map(user => (
-                <UserCard user={user} />
-            ))}
+            <List
+                grid={{
+                    gutter: 16,
+                    xs: 1,
+                    sm: 2,
+                    md: 4,
+                    lg: 4,
+                    xl: 6,
+                    xxl: 4,
+                }}
+                dataSource={users}
+                renderItem={(item) => (
+                    <List.Item>
+                        <UserCard user={item} />
+                    </List.Item>
+                )}
+            />
         </Flex>
+    
     );
 });
 

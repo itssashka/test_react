@@ -9,7 +9,7 @@ const users: User[] = [
         username: 'asd',
         lastName: 'asd',
         password: '123',
-        roles: [UserRoles.USER],
+        roles: [UserRoles.ANT],
         workBorders: [
             {
                 id: '1',
@@ -23,7 +23,7 @@ const users: User[] = [
         username: 'asd',
         lastName: 'asd',
         password: '123',
-        roles: [UserRoles.USER],
+        roles: [UserRoles.ANT],
         workBorders: [
             {
                 id: '1',
@@ -37,7 +37,7 @@ const users: User[] = [
         username: 'asd',
         lastName: 'asd',
         password: '123',
-        roles: [UserRoles.USER],
+        roles: [UserRoles.ANT],
         workBorders: [
             {
                 id: '1',
@@ -51,7 +51,7 @@ const users: User[] = [
         username: 'asd',
         lastName: 'asd',
         password: '123',
-        roles: [UserRoles.USER],
+        roles: [UserRoles.ANT],
         workBorders: [
             {
                 id: '1',
