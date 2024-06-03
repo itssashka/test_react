@@ -3,8 +3,9 @@ import { Flex } from 'antd';
 import Title from 'antd/es/typography/Title';
 import { useAppDispatch, useAppSelector } from '../../../store/hooks.ts';
 import { getUsers, getUsersError, getUsersIsLoading } from '../../../store/users/selectors/users.ts';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { fetchUsers } from '../../../store/users/services/fetchUsers.ts';
+import { SearchField } from '../../../components/Search/SearchField.tsx';
 
 const UsersPage = () => {
     const users = useAppSelector(getUsers);
@@ -20,6 +21,7 @@ const UsersPage = () => {
     return (
         <Flex align={'center'} justify={'start'} vertical >
             <Title>Список пользователей</Title>
+            <SearchField onSearch={() => {}} />
             <UsersList users={users} isLoading={isLoading} error={error} />
         </Flex>
     );

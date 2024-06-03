@@ -17,9 +17,9 @@ export const users = [
     },
     {
         id: '2',
-        firstName: 'asd',
-        username: 'asd',
-        lastName: 'asd',
+        firstName: 'qwe',
+        username: 'qwe',
+        lastName: 'qwe',
         password: '123',
         roles: [UserRoles.ANT],
         workBorders: [
@@ -31,9 +31,9 @@ export const users = [
     },
     {
         id: '3',
-        firstName: 'asd',
-        username: 'asd',
-        lastName: 'asd',
+        firstName: 'xc',
+        username: 'zxc',
+        lastName: 'xc',
         password: '123',
         roles: [UserRoles.ANT],
         workBorders: [
@@ -45,9 +45,9 @@ export const users = [
     },
     {
         id: '4',
-        firstName: 'asd',
-        username: 'asd',
-        lastName: 'asd',
+        firstName: 'cvb',
+        username: 'cvb',
+        lastName: 'cvb',
         password: '123',
         roles: [UserRoles.ANT],
         workBorders: [
@@ -60,7 +60,7 @@ export const users = [
     {
         id: '5',
         firstName: 'asd',
-        username: 'asd',
+        username: 'rty',
         lastName: 'asd',
         password: '123',
         roles: [UserRoles.ANT],
@@ -74,7 +74,7 @@ export const users = [
     {
         id: '6',
         firstName: 'asd',
-        username: 'asd',
+        username: 'hjk',
         lastName: 'asd',
         password: '123',
         roles: [UserRoles.ANT],

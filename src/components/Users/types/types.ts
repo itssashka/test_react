@@ -11,7 +11,7 @@ export interface WorkBorders {
 }
 
 export interface User {
-    id: string,
+    id?: string,
     username: string;
     password: string;
     firstName: string;
