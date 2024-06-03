@@ -1,72 +1,26 @@
 import { UsersList } from '../../../components/Users/UsersList/UsersList.tsx';
-import { User, UserRoles } from '../../../components/Users/types/types.ts';
 import { Flex } from 'antd';
 import Title from 'antd/es/typography/Title';
-
-const users: User[] = [
-    {
-        id: '1',
-        firstName: 'asd',
-        username: 'asd',
-        lastName: 'asd',
-        password: '123',
-        roles: [UserRoles.ANT],
-        workBorders: [
-            {
-                id: '1',
-                name: 'asd',
-            },
-        ],
-    },
-    {
-        id: '2',
-        firstName: 'asd',
-        username: 'asd',
-        lastName: 'asd',
-        password: '123',
-        roles: [UserRoles.ANT],
-        workBorders: [
-            {
-                id: '1',
-                name: 'asd',
-            },
-        ],
-    },
-    {
-        id: '3',
-        firstName: 'asd',
-        username: 'asd',
-        lastName: 'asd',
-        password: '123',
-        roles: [UserRoles.ANT],
-        workBorders: [
-            {
-                id: '1',
-                name: 'asd',
-            },
-        ],
-    },
-    {
-        id: '4',
-        firstName: 'asd',
-        username: 'asd',
-        lastName: 'asd',
-        password: '123',
-        roles: [UserRoles.ANT],
-        workBorders: [
-            {
-                id: '1',
-                name: 'asd',
-            },
-        ],
-    },
-];
+import { useAppDispatch, useAppSelector } from '../../../store/hooks.ts';
+import { getUsers, getUsersError, getUsersIsLoading } from '../../../store/users/selectors/users.ts';
+import { useEffect } from 'react';
+import { fetchUsers } from '../../../store/users/services/fetchUsers.ts';
 
 const UsersPage = () => {
+    const users = useAppSelector(getUsers);
+    const isLoading = useAppSelector(getUsersIsLoading);
+    const error = useAppSelector(getUsersError);
+    
+    const dispatch = useAppDispatch();
+    
+    useEffect(() => {
+        dispatch(fetchUsers());
+    }, [dispatch]);
+    
     return (
         <Flex align={'center'} justify={'start'} vertical >
             <Title>Список пользователей</Title>
-            <UsersList users={users} />
+            <UsersList users={users} isLoading={isLoading} error={error} />
         </Flex>
     );
 };

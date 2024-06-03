@@ -1,8 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { UsersSchema } from './users/types/usersSchema.ts';
+import { usersReducer } from './users/slices/userSlice.tsx';
 
-export const store = configureStore({
-    reducer: {},
-});
+export interface StateSchema {
+    users: UsersSchema;
+}
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export const store = configureStore<StateSchema>({
+    reducer: {
+        users: usersReducer,
+    },
+})
+
+export type AppStore = typeof store;
+export type RootState = ReturnType<AppStore['getState']>;
+export type AppDispatch = AppStore['dispatch'];
