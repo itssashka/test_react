@@ -7,6 +7,7 @@ export enum AppRoutes {
     MAIN = 'main',
     USERS = 'users',
     EDIT = 'edit',
+    CREATE = 'create',
     NOT_FOUND = 'not_found',
 }
 
@@ -14,6 +15,7 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.USERS]: '/users',
     [AppRoutes.MAIN]: '/',
     [AppRoutes.EDIT]: '/edit/', // + :id
+    [AppRoutes.CREATE]: '/create',
     [AppRoutes.NOT_FOUND]: '*',
 };
 
@@ -28,6 +30,10 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
     },
     [AppRoutes.EDIT]: {
         path: RoutePath.edit + ':id',
+        element: <EditPage />,
+    },
+    [AppRoutes.CREATE]: {
+        path: RoutePath.create,
         element: <EditPage />,
     },
     [AppRoutes.NOT_FOUND]: {

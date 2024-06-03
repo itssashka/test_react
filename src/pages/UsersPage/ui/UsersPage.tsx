@@ -1,6 +1,7 @@
 import { UsersList } from '../../../components/Users/UsersList/UsersList.tsx';
 import { User, UserRoles } from '../../../components/Users/types/types.ts';
 import { Flex } from 'antd';
+import Title from 'antd/es/typography/Title';
 
 const users: User[] = [
     {
@@ -63,7 +64,8 @@ const users: User[] = [
 
 const UsersPage = () => {
     return (
-        <Flex justify={'center'} >
+        <Flex align={'center'} justify={'start'} vertical >
+            <Title>Список пользователей</Title>
             <UsersList users={users} />
         </Flex>
     );

@@ -7,7 +7,17 @@ function App() {
     return (
         <Layout className={'App'}>
             <Header />
-            <AppRouter />
+            <Layout style={{ padding: '0 24px 24px' }}>
+                <Content
+                    style={{
+                        padding: 24,
+                        margin: 'auto',
+                        minHeight: 280,
+                    }}
+                >
+                    <AppRouter />
+                </Content>
+            </Layout>
             <Footer />
         </Layout>
     );
