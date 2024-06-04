@@ -30,20 +30,10 @@ export const usersSlice = createSlice({
                     state.data = action.payload;
                 },
             )
-            .addCase(fetchUsers.rejected, (state, action) => {
+            .addCase(fetchUsers.rejected, (state) => {
                 state.isLoading = false;
-                state.error = action.payload;
-            })
-            .addCase(
-                editUser.fulfilled,
-                (
-                    state,
-                    action: PayloadAction<User[]>,
-                ) => {
-                    state.isLoading = false;
-                    state.data = action.payload;
-                },
-            );
+                state.error = true;
+            });
     },
 });
 

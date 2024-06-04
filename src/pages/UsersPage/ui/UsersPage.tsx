@@ -6,7 +6,7 @@ import { getUsers, getUsersError, getUsersIsLoading } from '../../../store/users
 import { useCallback, useEffect, useState } from 'react';
 import { fetchUsers } from '../../../store/users/services/fetchUsers.ts';
 import { SearchField } from '../../../components/Search/SearchField.tsx';
-import { useSearchUsers } from '../../../hooks/useSearch.ts';
+import { useSearchUsers } from '../../../hooks/useSearchUsers.ts';
 
 const UsersPage = () => {
     const users = useAppSelector(getUsers);
@@ -14,6 +14,8 @@ const UsersPage = () => {
     const error = useAppSelector(getUsersError);
     const [searchQuery, setSearchQuery] = useState<string>('');
     const filteredUsers = useSearchUsers(users, searchQuery);
+    console.log(filteredUsers);
+    console.log(users);
     
     const dispatch = useAppDispatch();
     

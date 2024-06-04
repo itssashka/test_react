@@ -18,6 +18,7 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    '@typescript-eslint/no-explicit-any': 'warn',
     'react/jsx-indent': ['error', 4],
     'react/jsx-indent-props': ['error', 4],
     'no-unused-vars': 'warn',

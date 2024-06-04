@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { UserSchema } from '../types/userSchema.ts';
 import { User } from '../../../components/Users/types/types.ts';
-import { usersSlice } from '../../users/slices/usersSlice.tsx';
 import { fetchUser } from '../services/fetchUser.ts';
 import { editUser } from '../services/editUser.ts';
 
@@ -14,7 +13,14 @@ const initialState: UserSchema = {
 export const userSlice = createSlice({
     name: 'userSlice',
     initialState,
-    reducers: {},
+    reducers: {
+        updateUser: (state, action: PayloadAction<User>) => {
+            state.data = {
+                ...state.data,
+                ...action.payload,
+            };
+        },
+    },
     extraReducers: builder => {
         builder
             .addCase(fetchUser.pending, (state) => {
@@ -31,9 +37,9 @@ export const userSlice = createSlice({
                     state.data = action.payload;
                 },
             )
-            .addCase(fetchUser.rejected, (state, action) => {
+            .addCase(fetchUser.rejected, (state) => {
                 state.isLoading = false;
-                state.error = action.payload;
+                state.error = true;
             })
             .addCase(editUser.pending, (state) => {
                 state.error = undefined;
@@ -43,13 +49,16 @@ export const userSlice = createSlice({
                 editUser.fulfilled,
                 (
                     state,
+                    action: PayloadAction<User>,
                 ) => {
                     state.isLoading = false;
+                    state.data = action.payload;
+                    console.log('Пользователь обновлен');
                 },
             )
-            .addCase(editUser.rejected, (state, action) => {
+            .addCase(editUser.rejected, (state) => {
                 state.isLoading = false;
-                state.error = action.payload;
+                state.error = true;
             });
     },
 });

@@ -1,6 +1,6 @@
 import Title from 'antd/es/typography/Title';
 import { Button, Flex } from 'antd';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { EditForm } from '../../../components/Form/EditForm.tsx';
 import { useAppDispatch, useAppSelector } from '../../../store/hooks.ts';
 import { getUser, getUserError, getUserIsLoading } from '../../../store/user/selectors/userSelector.ts';
@@ -20,10 +20,10 @@ const EditPage = () => {
     
     useEffect(() => {
         dispatch(fetchUser(id!));
-    }, [dispatch]);
+    }, [dispatch, id]);
     
-    const onEdit = useCallback((user: User) => {
-        dispatch(editUser({ id: id!, newUser: user }));
+    const onEdit = useCallback((newUser: User) => {
+        dispatch(editUser(newUser));
     }, [dispatch, id]);
     
     const backToList = useCallback(() => {
@@ -31,16 +31,14 @@ const EditPage = () => {
     }, [navigate]);
 
     return (
-        <Flex align={'center'} justify={'start'} vertical >
+        <Flex align={'center'} justify={'start'} vertical>
             <Title>Редактирование пользователя</Title>
-            {user && (
-                <EditForm
-                    user={user}
-                    isLoading={isLoading}
-                    error={error}
-                    onSubmit={onEdit}
-                />
-            )}
+            <EditForm
+                user={user}
+                isLoading={isLoading}
+                error={error}
+                onSubmit={onEdit}
+            />
             {error && <Title>Произошла ошибка</Title>}
             <Button onClick={backToList}>
                 Вернуться назад
