@@ -2,6 +2,7 @@ import { Navigate, RouteProps } from 'react-router-dom';
 import { NotFoundPage } from '../../../pages/NotFoundPage';
 import { UsersPage } from '../../../pages/UsersPage';
 import { EditPage } from '../../../pages/EditPage';
+import { CreatePage } from '../../../pages/CreatePage';
 
 export enum AppRoutes {
     MAIN = 'main',
@@ -34,7 +35,7 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
     },
     [AppRoutes.CREATE]: {
         path: RoutePath.create,
-        element: <EditPage />,
+        element: <CreatePage />,
     },
     [AppRoutes.NOT_FOUND]: {
         path: RoutePath.not_found,
